@@ -21,7 +21,7 @@
     "lint": "turbo run lint",
     "lintfix": "turbo run lintfix",
     "optimize-svg": "find ./packages -name '*.svg' ! -name 'pipedrive.svg' -print0 | xargs -0 -P16 -L20 npx svgo",
-    "start": "run-script-os",
+    "start": "export NODE_FUNCTION_ALLOW_EXTERNAL=* && run-script-os",
     "start:default": "cd packages/cli/bin && ./n8n",
     "start:tunnel": "./packages/cli/bin/n8n start --tunnel",
     "start:windows": "cd packages/cli/bin && n8n",
@@ -97,5 +97,8 @@
       "vite-plugin-checker@0.6.4": "patches/vite-plugin-checker@0.6.4.patch",
       "@types/uuencode@0.0.3": "patches/@types__uuencode@0.0.3.patch"
     }
+  },
+  "dependencies": {
+    "twilio": "^5.1.0"
   }
 }
